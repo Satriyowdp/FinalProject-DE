@@ -1,0 +1,17 @@
+# Gunakan base image yang sesuai dengan kebutuhan Anda
+FROM python:3.8
+
+# Set working directory di dalam container
+WORKDIR /app
+
+# Copy file requirements.txt ke dalam container
+COPY requirements.txt .
+
+# Install dependensi dari requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy seluruh kode proyek ke dalam container
+COPY . .
+
+# CMD default command yang akan dijalankan saat container dijalankan
+CMD [ "python", "app.py" ]
